@@ -3,238 +3,984 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aditya Khanna | Official</title>
-<meta name="description" content="Official website of Aditya Khanna — videos, Shorts, vlogs and more.">
+
+<title>Aditya Khanna | Free Online Tools</title>
+<meta name="description" content="Aditya Khanna official website with free online PDF, image, QR and calculator tools.">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:Arial,Helvetica,sans-serif;background:#0b0b0f;color:#fff;line-height:1.6}
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#0b0b0f;color:#fff;line-height:1.6
+}
 a{text-decoration:none;color:inherit}
 .container{width:min(1100px,92%);margin:auto}
-nav{position:sticky;top:0;z-index:10;background:rgba(11,11,15,.9);backdrop-filter:blur(12px);border-bottom:1px solid #222}
-.navin{height:70px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:22px;font-weight:800}.logo span{color:#ff3131}
-.navlinks{display:flex;gap:25px;font-size:14px;color:#ccc}.navlinks a:hover{color:#fff}
-.hero{min-height:78vh;display:flex;align-items:center;text-align:center;background:radial-gradient(circle at 50% 20%,#351010 0,#0b0b0f 55%)}
-.hero h1{font-size:clamp(44px,8vw,82px);line-height:1.05;margin-bottom:18px}
-.hero h1 span{color:#ff3131}
-.hero p{max-width:650px;margin:0 auto 28px;color:#bdbdbd;font-size:18px}
-.btn{display:inline-block;background:#ff2020;padding:14px 25px;border-radius:10px;font-weight:700;margin:5px;transition:.2s}
-.btn:hover{transform:translateY(-2px);background:#e51616}
-.btn.secondary{background:#202027}
-section{padding:80px 0}
-.title{text-align:center;font-size:36px;margin-bottom:12px}
-.subtitle{text-align:center;color:#999;margin-bottom:35px}
-.feature{display:grid;grid-template-columns:1.2fr .8fr;gap:25px}
-.card{background:#15151c;border:1px solid #24242d;border-radius:18px;padding:24px}
-.video{aspect-ratio:16/9;border-radius:14px;background:#222;display:flex;align-items:center;justify-content:center;color:#aaa}
-.video a{background:#ff2020;padding:12px 18px;border-radius:8px;color:#fff;font-weight:bold}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.item{background:#15151c;border:1px solid #24242d;border-radius:15px;overflow:hidden}
-.thumb{aspect-ratio:16/9;background:linear-gradient(135deg,#292933,#121218);display:flex;align-items:center;justify-content:center;font-size:34px}
-.item div:last-child{padding:16px}.item p{color:#999;font-size:14px}
-.about{max-width:760px;margin:auto;text-align:center;color:#bbb;font-size:17px}
-.socials{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:25px}
-.socials a{padding:11px 18px;background:#17171e;border:1px solid #292932;border-radius:9px}
-footer{border-top:1px solid #222;padding:30px 0;text-align:center;color:#777;font-size:14px}
-@media(max-width:750px){.navlinks{display:none}.feature{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}}
-@media(max-width:500px){.grid{grid-template-columns:1fr}.hero{min-height:70vh}section{padding:60px 0}}
-/* ===== AESTHETIC ANIMATIONS ===== */
 
-body{
-  position:relative;
-    overflow-x:hidden;
-    }
-    
-    /* Moving red glow */
-    body::before{
-      content:"";
-        position:fixed;
-          width:450px;
-            height:450px;
-              left:-150px;
-                top:15%;
-                  border-radius:50%;
-                    background:rgba(255,40,40,.10);
-                      filter:blur(90px);
-                        pointer-events:none;
-                          z-index:0;
-                            animation:floatGlow 8s ease-in-out infinite alternate;
-                            }
-                            
-                            body::after{
-                              content:"";
-                                position:fixed;
-                                  width:400px;
-                                    height:400px;
-                                      right:-150px;
-                                        bottom:5%;
-                                          border-radius:50%;
-                                            background:rgba(255,0,70,.08);
-                                              filter:blur(90px);
-                                                pointer-events:none;
-                                                  z-index:0;
-                                                    animation:floatGlow2 10s ease-in-out infinite alternate;
-                                                    }
-                                                    
-                                                    /* Keep website above glow */
-                                                    nav,
-                                                    header,
-                                                    section,
-                                                    footer{
-                                                      position:relative;
-                                                        z-index:1;
-                                                        }
-                                                        
-                                                        /* Hero animation */
-                                                        .hero h1{
-                                                          animation:heroTitle 1.2s ease-out both;
-                                                          }
-                                                          
-                                                          .hero p{
-                                                            animation:fadeUp 1s ease-out .2s both;
-                                                            }
-                                                            
-                                                            .hero .btn{
-                                                              animation:fadeUp 1s ease-out .5s both;
-                                                              }
-                                                              
-                                                              /* Cards */
-                                                              .card,
-                                                              .item{
-                                                                transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
-                                                                }
-                                                                
-                                                                .card:hover,
-                                                                .item:hover{
-                                                                  transform:translateY(-8px);
-                                                                    box-shadow:0 15px 40px rgba(255,30,30,.15);
-                                                                      border-color:#ff3131;
-                                                                      }
-                                                                      
-                                                                      /* Buttons */
-                                                                      .btn{
-                                                                        transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
-                                                                        }
-                                                                        
-                                                                        .btn:hover{
-                                                                          transform:translateY(-4px) scale(1.03);
-                                                                            box-shadow:0 10px 30px rgba(255,30,30,.30);
-                                                                            }
-                                                                            
-                                                                            /* Logo pulse */
-                                                                            .logo span{
-                                                                              animation:pulseRed 1.5s ease-in-out infinite;
-                                                                              }
-                                                                              
-                                                                              /* Animations */
-                                                                              @keyframes floatGlow{
-                                                                                from{
-                                                                                    transform:translate(0,0) scale(1);
-                                                                                      }
-                                                                                        to{
-                                                                                            transform:translate(180px,80px) scale(1.25);
-                                                                                              }
-                                                                                              }
-                                                                                              
-                                                                                              @keyframes floatGlow2{
-                                                                                                from{
-                                                                                                    transform:translate(0,0) scale(1);
-                                                                                                      }
-                                                                                                        to{
-                                                                                                            transform:translate(-150px,-80px) scale(1.2);
-                                                                                                              }
-                                                                                                              }
-                                                                                                              
-                                                                                                              @keyframes heroTitle{
-                                                                                                                from{
-                                                                                                                    opacity:0;
-                                                                                                                        transform:translateY(25px) scale(.96);
-                                                                                                                            letter-spacing:8px;
-                                                                                                                              }
-                                                                                                                                to{
-                                                                                                                                    opacity:1;
-                                                                                                                                        transform:translateY(0) scale(1);
-                                                                                                                                            letter-spacing:normal;
-                                                                                                                                              }
-                                                                                                                                              }
-                                                                                                                                              
-                                                                                                                                              @keyframes fadeUp{
-                                                                                                                                                </style>
+nav{
+position:sticky;top:0;z-index:99;
+background:rgba(11,11,15,.95);
+backdrop-filter:blur(12px);
+border-bottom:1px solid #222
+}
+.navin{
+height:70px;display:flex;align-items:center;
+justify-content:space-between
+}
+.logo{font-size:22px;font-weight:800}
+.logo span{color:#ff3131}
+.navlinks{display:flex;gap:22px;font-size:14px;color:#ccc}
+.navlinks a:hover{color:#fff}
+
+.hero{
+min-height:75vh;display:flex;align-items:center;
+text-align:center;
+background:radial-gradient(circle at 50% 20%,#351010 0,#0b0b0f 55%)
+}
+.hero h1{
+font-size:clamp(44px,8vw,82px);
+line-height:1.05;margin-bottom:18px
+}
+.hero h1 span{color:#ff3131}
+.hero p{max-width:700px;margin:0 auto 25px;color:#bbb;font-size:18px}
+
+.btn{
+display:inline-block;background:#ff2020;
+padding:13px 22px;border-radius:9px;
+font-weight:700;margin:5px;cursor:pointer;border:0;color:white
+}
+.btn:hover{background:#e51616}
+.btn.secondary{background:#202027}
+
+section{padding:75px 0}
+.title{text-align:center;font-size:36px;margin-bottom:10px}
+.subtitle{text-align:center;color:#999;margin-bottom:35px}
+
+.tools{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px
+}
+.tool{
+background:#15151c;
+border:1px solid #292932;
+border-radius:16px;
+padding:22px
+}
+.tool h3{margin-bottom:8px;font-size:21px}
+.tool p{color:#999;font-size:14px;margin-bottom:15px}
+
+input,select{
+width:100%;
+padding:12px;
+margin:7px 0;
+border-radius:8px;
+border:1px solid #333;
+background:#0e0e13;
+color:#fff
+}
+
+.result{
+margin-top:12px;
+padding:12px;
+border-radius:8px;
+background:#202027;
+color:#ddd
+}
+
+.info{
+max-width:800px;
+margin:auto;
+color:#bbb
+}
+.info h2{color:#fff;margin:25px 0 10px}
+.info p{margin-bottom:15px}
+.info ul{padding-left:22px;margin-bottom:15px}
+
+.page{display:none;min-height:75vh}
+
+footer{
+border-top:1px solid #222;
+padding:30px 0;
+text-align:center;
+color:#777;
+font-size:14px
+}
+.footerlinks{
+display:flex;
+justify-content:center;
+gap:18px;
+flex-wrap:wrap;
+margin-top:10px
+}
+.footerlinks a:hover{color:#fff}
+
+@media(max-width:750px){
+.navlinks{display:none}
+.tools{grid-template-columns:1fr 1fr}
+}
+@media(max-width:500px){
+.tools{grid-template-columns:1fr}
+.hero{min-height:70vh}
+section{padding:55px 0}
+}
+</style>
 </head>
+
 <body>
 
 <nav>
-  <div class="container navin">
-    <a class="logo" href="#home">ADITYA<span>.</span></a>
-    <div class="navlinks">
-      <a href="#home">Home</a>
-      <a href="#videos">Videos</a>
-      <a href="#shorts">Shorts</a>
-      <a href="#about">About</a>
-    </div>
-  </div>
+<div class="container navin">
+<a class="logo" href="#" onclick="showHome()">ADITYA<span>.</span></a>
+
+<div class="navlinks">
+<a href="#" onclick="showHome()">Home</a>
+<a href="#tools">Tools</a>
+<a href="#" onclick="showPage('aboutPage')">About</a>
+<a href="#" onclick="showPage('contactPage')">Contact</a>
+</div>
+</div>
 </nav>
 
-<header class="hero" id="home">
-  <div class="container">
-    <p style="color:#ff4a4a;font-weight:700;letter-spacing:2px">WELCOME TO MY OFFICIAL WEBSITE</p>
-    <h1>ADITYA <span>KHANNA</span></h1>
-    <p>Videos, Shorts, vlogs and new content — all in one place.</p>
-    <a class="btn" href="https://www.youtube.com/@adityakhanna2007" target="_blank">▶ Subscribe on YouTube</a>
-    <a class="btn secondary" href="#videos">Watch Videos</a>
-  </div>
+
+<!-- HOME -->
+
+<main id="home">
+
+<header class="hero">
+<div class="container">
+
+<p style="color:#ff4a4a;font-weight:700;letter-spacing:2px">
+WELCOME TO MY OFFICIAL WEBSITE
+</p>
+
+<h1>ADITYA <span>KHANNA</span></h1>
+
+<p>
+Free online tools for PDF, images, QR codes and everyday calculations.
+</p>
+
+<a class="btn" href="https://www.youtube.com/@adityakhanna2007" target="_blank">
+▶ YouTube
+</a>
+
+<a class="btn secondary" href="#tools">
+Explore Tools
+</a>
+
+</div>
 </header>
 
-<section id="videos">
-  <div class="container">
-    <h2 class="title">Latest Videos</h2>
-    <p class="subtitle">Replace these cards with your latest uploads.</p>
-    <div class="feature">
-      <div class="card">
-        <div class="video">
-          <a href="https://www.youtube.com/@adityakhanna2007/videos" target="_blank">▶ Open My Videos</a>
-        </div>
-      </div>
-      <div class="card">
-        <h3 style="font-size:25px;margin-bottom:10px">Featured Creator</h3>
-        <p style="color:#aaa">Check out the latest uploads on the official YouTube channel.</p>
-        <br>
-        <a class="btn" href="https://www.youtube.com/@adityakhanna2007/videos" target="_blank">View Channel</a>
-      </div>
-    </div>
-  </div>
+
+<section id="tools">
+
+<div class="container">
+
+<h2 class="title">Free Online Tools</h2>
+
+<p class="subtitle">
+Simple tools that work directly in your browser.
+</p>
+
+
+<div class="tools">
+
+
+<!-- IMAGE COMPRESSOR -->
+
+<div class="tool">
+<h3>🖼️ Image Compressor</h3>
+<p>Reduce image file size.</p>
+
+<input type="file" id="compressInput" accept="image/*">
+
+<button class="btn" onclick="compressImage()">
+Compress
+</button>
+
+<div id="compressResult"></div>
+</div>
+
+
+<!-- IMAGE RESIZER -->
+
+<div class="tool">
+<h3>📐 Image Resizer</h3>
+<p>Resize an image to your required size.</p>
+
+<input type="file" id="resizeInput" accept="image/*">
+
+<input type="number" id="resizeWidth" placeholder="Width">
+
+<input type="number" id="resizeHeight" placeholder="Height">
+
+<button class="btn" onclick="resizeImage()">
+Resize
+</button>
+
+<div id="resizeResult"></div>
+</div>
+
+
+<!-- JPG PNG -->
+
+<div class="tool">
+<h3>🔄 JPG ↔ PNG</h3>
+<p>Convert JPG or PNG images.</p>
+
+<input type="file" id="convertInput" accept="image/*">
+
+<button class="btn" onclick="convertImage()">
+Convert
+</button>
+
+<div id="convertResult"></div>
+</div>
+
+
+<!-- JPG PDF -->
+
+<div class="tool">
+<h3>📄 JPG → PDF</h3>
+<p>Create a PDF from an image.</p>
+
+<input type="file" id="jpgPdfInput" accept="image/*">
+
+<button class="btn" onclick="jpgToPdf()">
+Create PDF
+</button>
+</div>
+
+
+<!-- MERGE PDF -->
+
+<div class="tool">
+<h3>📑 Merge PDF</h3>
+<p>Combine multiple PDF files into one.</p>
+
+<input type="file" id="mergeInput" accept="application/pdf" multiple>
+
+<button class="btn" onclick="mergePDF()">
+Merge PDFs
+</button>
+</div>
+
+
+<!-- SPLIT PDF -->
+
+<div class="tool">
+<h3>📃 Split PDF</h3>
+<p>Extract one page from a PDF.</p>
+
+<input type="file" id="splitInput" accept="application/pdf">
+
+<input type="number" id="splitPage" min="1" placeholder="Page number">
+
+<button class="btn" onclick="splitPDF()">
+Split Page
+</button>
+</div>
+
+
+<!-- QR -->
+
+<div class="tool">
+<h3>🔳 QR Code Generator</h3>
+<p>Create a QR code from text or a link.</p>
+
+<input type="text" id="qrText" placeholder="Enter text or URL">
+
+<button class="btn" onclick="generateQR()">
+Generate
+</button>
+
+<div id="qrResult"></div>
+</div>
+
+
+<!-- AGE -->
+
+<div class="tool">
+<h3>🎂 Age Calculator</h3>
+<p>Calculate your age.</p>
+
+<input type="date" id="birthDate">
+
+<button class="btn" onclick="calculateAge()">
+Calculate
+</button>
+
+<div id="ageResult"></div>
+</div>
+
+
+<!-- PERCENTAGE -->
+
+<div class="tool">
+<h3>📊 Percentage Calculator</h3>
+<p>Calculate percentage easily.</p>
+
+<input type="number" id="percentValue" placeholder="Obtained">
+
+<input type="number" id="percentTotal" placeholder="Total">
+
+<button class="btn" onclick="calculatePercentage()">
+Calculate
+</button>
+
+<div id="percentResult"></div>
+</div>
+
+
+</div>
+</div>
 </section>
 
-<section id="shorts">
-  <div class="container">
-    <h2 class="title">YouTube Shorts</h2>
-    <p class="subtitle">Quick videos, fun moments and fresh content.</p>
-    <div class="grid">
-      <div class="item"><div class="thumb">▶</div><div><h3>Latest Short</h3><p>Watch on YouTube</p></div></div>
-      <div class="item"><div class="thumb">▶</div><div><h3>More Shorts</h3><p>Watch on YouTube</p></div></div>
-      <div class="item"><div class="thumb">▶</div><div><h3>New Content</h3><p>Watch on YouTube</p></div></div>
-    </div>
-    <div style="text-align:center;margin-top:28px">
-      <a class="btn" href="https://www.youtube.com/@adityakhanna2007/shorts" target="_blank">View All Shorts</a>
-    </div>
-  </div>
+
+<section>
+
+<div class="container">
+
+<h2 class="title">About This Website</h2>
+
+<p class="info">
+Welcome to the official website of Aditya Khanna. This website provides
+simple and useful online tools for everyday tasks including image
+conversion, PDF processing, QR generation and calculators.
+</p>
+
+</div>
+
 </section>
 
-<section id="about">
-  <div class="container">
-    <h2 class="title">About Aditya</h2>
-    <p class="about">Welcome to my official website. I create YouTube videos and Shorts and share new content regularly. Follow the channel and stay connected for upcoming videos.</p>
-    <div class="socials">
-      <a href="https://www.youtube.com/@adityakhanna2007" target="_blank">YouTube</a>
-      <a href="#home">Back to Top ↑</a>
-    </div>
-  </div>
+</main>
+
+
+<!-- ABOUT PAGE -->
+
+<section id="aboutPage" class="page">
+
+<div class="container info">
+
+<h1 class="title">About Aditya Khanna</h1>
+
+<p>
+Welcome to the official website of Aditya Khanna.
+</p>
+
+<p>
+This website provides free browser-based tools designed to make
+common digital tasks easier.
+</p>
+
+<h2>Our Tools</h2>
+
+<p>
+The website includes image tools, PDF tools, QR code generation,
+age calculation and percentage calculation.
+</p>
+
+<h2>Our Goal</h2>
+
+<p>
+Our goal is to provide simple, useful and easy-to-use online tools.
+</p>
+
+<button class="btn" onclick="showHome()">← Back Home</button>
+
+</div>
+
 </section>
+
+
+<!-- PRIVACY -->
+
+<section id="privacyPage" class="page">
+
+<div class="container info">
+
+<h1 class="title">Privacy Policy</h1>
+
+<p>
+Last updated: 2026
+</p>
+
+<h2>Information We Collect</h2>
+
+<p>
+This website does not intentionally collect personal information
+through the basic tools on this page.
+</p>
+
+<h2>File Processing</h2>
+
+<p>
+Where the tools process images or PDF files directly in your browser,
+the files are processed locally by the browser and are not intentionally
+uploaded to our server.
+</p>
+
+<h2>QR Code Generator</h2>
+
+<p>
+The QR code generator may use a third-party QR service to generate
+the requested QR image. Information entered into that tool may therefore
+be sent to that third-party service.
+</p>
+
+<h2>Cookies and Advertising</h2>
+
+<p>
+If Google AdSense or other advertising services are enabled in the
+future, those services may use cookies or similar technologies according
+to their own policies.
+</p>
+
+<h2>Third-Party Services</h2>
+
+<p>
+External services used by this website may have their own privacy
+policies and terms.
+</p>
+
+<h2>Contact</h2>
+
+<p>
+If you contact us, the information you provide may be used only to
+respond to your request.
+</p>
+
+<button class="btn" onclick="showHome()">← Back Home</button>
+
+</div>
+
+</section>
+
+
+<!-- DISCLAIMER -->
+
+<section id="disclaimerPage" class="page">
+
+<div class="container info">
+
+<h1 class="title">Disclaimer</h1>
+
+<p>
+The information and tools provided on this website are intended for
+general convenience and informational purposes.
+</p>
+
+<h2>Tool Accuracy</h2>
+
+<p>
+Although we try to make the tools work correctly, results should be
+checked before being used for important decisions or official purposes.
+</p>
+
+<h2>PDF and Image Tools</h2>
+
+<p>
+Users are responsible for checking the files they create, convert,
+compress or modify.
+</p>
+
+<h2>External Links</h2>
+
+<p>
+This website may contain links to third-party websites. We are not
+responsible for the content or policies of external websites.
+</p>
+
+<h2>Advertising</h2>
+
+<p>
+If advertisements are displayed, advertisements may be provided by
+third-party advertising networks.
+</p>
+
+<button class="btn" onclick="showHome()">← Back Home</button>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contactPage" class="page">
+
+<div class="container info">
+
+<h1 class="title">Contact</h1>
+
+<p>
+For questions, suggestions or website-related issues, contact us using
+the email address below.
+</p>
+
+<p style="text-align:center;font-size:20px">
+<strong>YOUR-EMAIL@example.com</strong>
+</p>
+
+<p>
+Replace the email above with your real public contact email before
+publishing the final version.
+</p>
+
+<button class="btn" onclick="showHome()">← Back Home</button>
+
+</div>
+
+</section>
+
 
 <footer>
-  © 2026 Aditya Khanna. All rights reserved.
+
+<div class="container">
+
+© 2026 Aditya Khanna. All rights reserved.
+
+<div class="footerlinks">
+
+<a href="#" onclick="showPage('aboutPage')">About</a>
+
+<a href="#" onclick="showPage('privacyPage')">
+Privacy Policy
+</a>
+
+<a href="#" onclick="showPage('disclaimerPage')">
+Disclaimer
+</a>
+
+<a href="#" onclick="showPage('contactPage')">
+Contact
+</a>
+
+</div>
+
+</div>
+
 </footer>
+
+
+<script>
+
+/* PAGE NAVIGATION */
+
+function showHome(){
+
+document.getElementById("home").style.display="block";
+
+document.querySelectorAll(".page").forEach(function(p){
+p.style.display="none";
+});
+
+window.scrollTo(0,0);
+
+}
+
+
+function showPage(id){
+
+document.getElementById("home").style.display="none";
+
+document.querySelectorAll(".page").forEach(function(p){
+p.style.display="none";
+});
+
+document.getElementById(id).style.display="block";
+
+window.scrollTo(0,0);
+
+}
+
+
+/* IMAGE COMPRESSOR */
+
+function compressImage(){
+
+const file=document.getElementById("compressInput").files[0];
+
+if(!file){
+alert("Please select an image.");
+return;
+}
+
+const img=new Image();
+
+img.onload=function(){
+
+const canvas=document.createElement("canvas");
+
+canvas.width=img.width;
+canvas.height=img.height;
+
+const ctx=canvas.getContext("2d");
+
+ctx.drawImage(img,0,0);
+
+canvas.toBlob(function(blob){
+
+const url=URL.createObjectURL(blob);
+
+document.getElementById("compressResult").innerHTML=
+'<a class="btn" href="'+url+'" download="compressed-image.jpg">Download Image</a>';
+
+},"image/jpeg",0.5);
+
+};
+
+img.src=URL.createObjectURL(file);
+
+}
+
+
+/* IMAGE RESIZER */
+
+function resizeImage(){
+
+const file=document.getElementById("resizeInput").files[0];
+
+const width=parseInt(document.getElementById("resizeWidth").value);
+
+const height=parseInt(document.getElementById("resizeHeight").value);
+
+if(!file || !width || !height){
+
+alert("Select image and enter width and height.");
+
+return;
+
+}
+
+const img=new Image();
+
+img.onload=function(){
+
+const canvas=document.createElement("canvas");
+
+canvas.width=width;
+canvas.height=height;
+
+const ctx=canvas.getContext("2d");
+
+ctx.drawImage(img,0,0,width,height);
+
+canvas.toBlob(function(blob){
+
+const url=URL.createObjectURL(blob);
+
+document.getElementById("resizeResult").innerHTML=
+'<a class="btn" href="'+url+'" download="resized-image.jpg">Download Image</a>';
+
+},"image/jpeg",0.9);
+
+};
+
+img.src=URL.createObjectURL(file);
+
+}
+
+
+/* JPG PNG CONVERTER */
+
+function convertImage(){
+
+const file=document.getElementById("convertInput").files[0];
+
+if(!file){
+
+alert("Please select an image.");
+
+return;
+
+}
+
+const img=new Image();
+
+img.onload=function(){
+
+const canvas=document.createElement("canvas");
+
+canvas.width=img.width;
+canvas.height=img.height;
+
+const ctx=canvas.getContext("2d");
+
+ctx.drawImage(img,0,0);
+
+let type="image/png";
+let name="converted-image.png";
+
+if(file.type==="image/png"){
+
+type="image/jpeg";
+name="converted-image.jpg";
+
+}
+
+canvas.toBlob(function(blob){
+
+const url=URL.createObjectURL(blob);
+
+document.getElementById("convertResult").innerHTML=
+'<a class="btn" href="'+url+'" download="'+name+'">Download Converted Image</a>';
+
+},type,0.9);
+
+};
+
+img.src=URL.createObjectURL(file);
+
+}
+
+
+/* JPG TO PDF */
+
+async function jpgToPdf(){
+
+const file=document.getElementById("jpgPdfInput").files[0];
+
+if(!file){
+
+alert("Please select an image.");
+
+return;
+
+}
+
+const reader=new FileReader();
+
+reader.onload=function(e){
+
+const img=new Image();
+
+img.onload=function(){
+
+const {jsPDF}=window.jspdf;
+
+const pdf=new jsPDF("p","mm","a4");
+
+const pageWidth=210;
+const pageHeight=297;
+
+let width=pageWidth;
+let height=(img.height/img.width)*width;
+
+if(height>pageHeight){
+
+height=pageHeight;
+width=(img.width/img.height)*height;
+
+}
+
+const x=(pageWidth-width)/2;
+const y=(pageHeight-height)/2;
+
+pdf.addImage(e.target.result,"JPEG",x,y,width,height);
+
+pdf.save("aditya-image.pdf");
+
+};
+
+img.src=e.target.result;
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+
+/* MERGE PDF */
+
+async function mergePDF(){
+
+const files=document.getElementById("mergeInput").files;
+
+if(files.length<2){
+
+alert("Please select at least 2 PDF files.");
+
+return;
+
+}
+
+const mergedPdf=await PDFLib.PDFDocument.create();
+
+for(const file of files){
+
+const bytes=await file.arrayBuffer();
+
+const pdf=await PDFLib.PDFDocument.load(bytes);
+
+const pages=await mergedPdf.copyPages(pdf,pdf.getPageIndices());
+
+pages.forEach(function(page){
+
+mergedPdf.addPage(page);
+
+});
+
+}
+
+const mergedBytes=await mergedPdf.save();
+
+const blob=new Blob([mergedBytes],{type:"application/pdf"});
+
+const url=URL.createObjectURL(blob);
+
+const a=document.createElement("a");
+
+a.href=url;
+a.download="merged.pdf";
+a.click();
+
+}
+
+
+/* SPLIT PDF */
+
+async function splitPDF(){
+
+const file=document.getElementById("splitInput").files[0];
+
+const pageNumber=parseInt(document.getElementById("splitPage").value);
+
+if(!file || !pageNumber){
+
+alert("Select a PDF and enter page number.");
+
+return;
+
+}
+
+const bytes=await file.arrayBuffer();
+
+const pdf=await PDFLib.PDFDocument.load(bytes);
+
+const total=pdf.getPageCount();
+
+if(pageNumber<1 || pageNumber>total){
+
+alert("Page number must be between 1 and "+total);
+
+return;
+
+}
+
+const newPdf=await PDFLib.PDFDocument.create();
+
+const pages=await newPdf.copyPages(pdf,[pageNumber-1]);
+
+newPdf.addPage(pages[0]);
+
+const output=await newPdf.save();
+
+const blob=new Blob([output],{type:"application/pdf"});
+
+const url=URL.createObjectURL(blob);
+
+const a=document.createElement("a");
+
+a.href=url;
+a.download="split-page.pdf";
+a.click();
+
+}
+
+
+/* QR CODE */
+
+function generateQR(){
+
+const text=document.getElementById("qrText").value.trim();
+
+if(!text){
+
+alert("Enter text or URL.");
+
+return;
+
+}
+
+const url=
+"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="
++encodeURIComponent(text);
+
+document.getElementById("qrResult").innerHTML=
+
+'<br><img src="'+url+'" width="250" alt="QR Code"><br>'+
+'<a class="btn" href="'+url+'" target="_blank">Open QR</a>';
+
+}
+
+
+/* AGE CALCULATOR */
+
+function calculateAge(){
+
+const input=document.getElementById("birthDate").value;
+
+if(!input){
+
+alert("Select your date of birth.");
+
+return;
+
+}
+
+const birth=new Date(input);
+
+const today=new Date();
+
+let age=today.getFullYear()-birth.getFullYear();
+
+const month=today.getMonth()-birth.getMonth();
+
+if(month<0 || (month===0 && today.getDate()<birth.getDate())){
+
+age--;
+
+}
+
+document.getElementById("ageResult").innerHTML=
+"Your age is <strong>"+age+" years</strong>.";
+
+}
+
+
+/* PERCENTAGE */
+
+function calculatePercentage(){
+
+const obtained=parseFloat(
+document.getElementById("percentValue").value
+);
+
+const total=parseFloat(
+document.getElementById("percentTotal").value
+);
+
+if(isNaN(obtained) || isNaN(total) || total===0){
+
+alert("Enter valid numbers.");
+
+return;
+
+}
+
+const percentage=(obtained/total)*100;
+
+document.getElementById("percentResult").innerHTML=
+"<strong>"+percentage.toFixed(2)+"%</strong>";
+
+}
+
+</script>
 
 </body>
 </html>
